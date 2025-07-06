@@ -3,13 +3,15 @@ import { RevealOnScroll } from "../RevealOnScroll";
 import { Typewriter } from "react-simple-typewriter";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import heroImg from '../../assets/basim.jpg';
+import resume from '../../assets/BasimCV.pdf';
 
 export const Home = () => {
   return (
     <section
-      id="home"
-      className="min-h-screen flex items-center justify-center bg-black text-white px-6 md:px-12"
-    >
+  id="home"
+  className="min-h-screen flex items-center justify-center bg-black text-white px-6 md:px-12 pt-24 md:pt-32"
+>
+
       <RevealOnScroll>
         <div className="max-w-7xl w-full grid md:grid-cols-2 gap-12 items-center">
           {/* Left Side - Text */}
@@ -72,7 +74,7 @@ export const Home = () => {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="/basim-portfolio/assets/BasimCV.pdf"
+                href={resume}
                 download
                 className="bg-blue-500 text-white py-3 px-6 rounded font-medium transition hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
               >
