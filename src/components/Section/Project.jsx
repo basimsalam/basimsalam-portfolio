@@ -1,24 +1,27 @@
 import { RevealOnScroll } from "../RevealOnScroll";
+import recritment_ai from "../../assets/recruitment.jpeg";
+import disease from "../../assets/disease.jpg";
+import netflix from "../../assets/netflix.jpg";
 
 const projects = [
   {
     title: "Recruiment AI Agent",
     description: "Agentic AI for automating the recruitment process.",
-    image: "/basim-portfolio/assets/img1.jpeg",
+    image: recritment_ai,
     tech: ["CrewAI","mistral","llama3","FastAPI","Python"],
     link: "#",
   },
   {
     title: "Disease Predictor",
     description: "Multi-Modal Disease Predictor using Machine Learning & Deep Learning",
-    image: "/basim-portfolio/assets/img3.jpeg",
+    image: disease,
     tech: ["Machine Learning","Deep Learning","CNN"],
     link: "#",
   },
   {
     title: "Netflix Clone",
     description: "A Basic Frontend Clone of Netflix using React",
-    image: "/basim-portfolio/assets/img4.jpeg",
+    image: netflix,
     tech: ["React"],
     link: "#",
   },

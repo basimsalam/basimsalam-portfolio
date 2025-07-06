@@ -4,12 +4,25 @@ import { motion } from "framer-motion";
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const move = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    // Detect mobile device
+    const checkMobile = () => {
+      const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+      setIsMobile(isTouch);
     };
 
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return; // Don't add listeners on mobile
+
+    const move = (e) => setMousePosition({ x: e.clientX, y: e.clientY });
     const addHover = () => setHovered(true);
     const removeHover = () => setHovered(false);
 
@@ -28,7 +41,10 @@ const CustomCursor = () => {
         el.removeEventListener("mouseleave", removeHover);
       });
     };
-  }, []);
+  }, [isMobile]);
+
+  // Don't render on mobile
+  if (isMobile) return null;
 
   return (
     <motion.div

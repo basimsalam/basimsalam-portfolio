@@ -2,16 +2,24 @@ import { RevealOnScroll } from "../RevealOnScroll";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
+import structureIcon from "../../assets/structure.png";
+import Python from "../../assets/python.png";
+import ai_img from "../../assets/ai.png";
+import chatgpt from "../../assets/chatgpt.png";
+import Docker from "../../assets/docker.png";
+import html from "../../assets/html-5.png";
+import cvision from "../../assets/vision.png";
+import github from "../../assets/git.png";
 
 const skills = [
-  { name: "React", icon: "/basim-portfolio/skills/structure.png" },
-  { name: "Python", icon: "/basim-portfolio/skills/python.png" },
-  { name: "Artificial Intelligence", icon: "/basim-portfolio/skills/ai.png" },
-  { name: "Chatgpt", icon: "/basim-portfolio/skills/chatgpt.png" },
-  { name: "Docker", icon: "/basim-portfolio/skills/docker.png" },
-  { name: "HTML", icon: "/basim-portfolio/skills/html-5.png" },
-  { name: "Computer Vision", icon: "/basim-portfolio/skills/vision.png" },
-  { name: "Git", icon: "/basim-portfolio/skills/git.png" },
+  { name: "React", icon: structureIcon },
+  { name: "Python", icon: Python },
+  { name: "Artificial Intelligence", icon: ai_img },
+  { name: "Chatgpt", icon: chatgpt },
+  { name: "Docker", icon: Docker },
+  { name: "HTML", icon: html },
+  { name: "Computer Vision", icon: cvision },
+  { name: "Git", icon: github },
 ];
 
 export const About = () => {

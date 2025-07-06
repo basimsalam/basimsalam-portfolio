@@ -62,11 +62,11 @@ export const Contact = () => {
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-blue-400 text-xl" />
-                <span className="text-gray-300">basim@example.com</span>
+                <span className="text-gray-300">basimnnas@gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <FaPhone className="text-blue-400 text-xl" />
-                <span className="text-gray-300">+91 98765 43210</span>
+                <span className="text-gray-300">+91 9207931626</span>
               </div>
               <div className="flex items-center gap-3">
                 <FaMapMarkerAlt className="text-blue-400 text-xl" />
@@ -74,14 +74,14 @@ export const Contact = () => {
               </div>
               <div className="flex gap-6 pt-4">
                 <a
-                  href="https://github.com/yourusername"
+                  href="https://github.com/basimsalam"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FaGithub className="text-2xl hover:text-blue-400 transition" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/yourusername"
+                  href="https://www.linkedin.com/in/basimsalam/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
