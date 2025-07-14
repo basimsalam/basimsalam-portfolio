@@ -66,11 +66,11 @@ export const About = () => {
           >
             {skills.map((skill, i) => (
               <SwiperSlide key={i}>
-                <div className="bg-blue-500/10 hover:bg-blue-500/20 transition p-4 rounded-xl flex flex-col items-center justify-center gap-2 h-32">
+                <div className="bg-black-500/10 hover:bg-black-500/20 transition p-4 rounded-xl flex flex-col items-center justify-center gap-2 h-32">
                   <img
                     src={skill.icon}
                     alt={skill.name}
-                    className="w-16 h-16 object-contain"
+                    className="w-10 h-10 object-contain"
                   />
                   <span className="text-sm text-blue-400 font-medium text-center">
                     {skill.name}

@@ -1,100 +1,108 @@
-import { RevealOnScroll } from "../RevealOnScroll";
+
+import { useState } from "react";
 import recritment_ai from "../../assets/recruitment.jpeg";
 import disease from "../../assets/disease.jpg";
 import netflix from "../../assets/netflix.jpg";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const projects = [
   {
-    title: "Recruiment AI Agent",
-    description: "Agentic AI for automating the recruitment process.",
-    image: recritment_ai,
-    tech: ["CrewAI","mistral","llama3","FastAPI","Python"],
-    link: "#",
+  title: "Recruiment AI Agent",
+  subtitle: "AI-Powered Hiring Platform",
+  description: "Agentic AI for automating the recruitment process.",
+  image: recritment_ai,
+  link: "#",
   },
+
   {
     title: "Disease Predictor",
-    description: "Multi-Modal Disease Predictor using Machine Learning & Deep Learning",
+    subtitle: "Health AI Tool",
+    description:
+      "Multi-modal disease predictor using ML and DL. Predicts diseases from text and images with high accuracy.",
     image: disease,
-    tech: ["Machine Learning","Deep Learning","CNN"],
-    link: "#",
   },
   {
     title: "Netflix Clone",
-    description: "A Basic Frontend Clone of Netflix using React",
+    subtitle: "Frontend Development",
+    description:
+      "A responsive Netflix UI clone built using React. Includes authentication, movie previews, and category listings.",
     image: netflix,
-    tech: ["React"],
-    link: "#",
   },
-
-  
 ];
 
 export const Projects = () => {
-  const isFew = projects.length < 4;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const currentProject = projects[currentIndex];
+
+  const nextProject = () => {
+    setCurrentIndex((prev) => (prev + 1) % projects.length);
+  };
+
+  const prevProject = () => {
+    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  };
 
   return (
     <section id="projects" className="min-h-screen py-20 bg-black text-white">
-      <RevealOnScroll>
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
-            Featured Projects
-          </h2>
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <h2 className="text-4xl font-bold text-center mb-2">
+          Things I have built
+        </h2>
+        <p className="text-center text-gray-400 mb-16">
+          A showcase of projects and work I’ve created
+        </p>
 
-          <div
-            className={`w-full ${
-              isFew
-                ? "flex justify-center flex-wrap gap-8"
-                : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-            }`}
+        {/* Content */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -40 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col lg:flex-row gap-16 items-center"
           >
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="relative group rounded-xl overflow-hidden border border-white/10 shadow-md bg-black transition duration-500"
-              >
-                {/* Hover Glow */}
-                <div className="absolute inset-0 z-0 rounded-xl opacity-0 group-hover:opacity-100 transition duration-500 blur-sm scale-105 bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500"></div>
+            {/* Image */}
+            <div className="w-full lg:w-1/2 rounded-xl overflow-hidden shadow-lg">
+              <img
+                src={currentProject.image}
+                alt={currentProject.title}
+                className="object-cover w-full h-60 lg:h-80 transition-transform duration-500 hover:scale-105 rounded-xl"
+                data-cursor-label="View"
+              />
+            </div>
 
-                {/* Card */}
-                <div className="relative z-10 rounded-xl overflow-hidden">
-                  <div className="relative w-full h-64">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                      <h3 className="text-2xl font-bold text-white text-center px-4">
-                        {project.title}
-                      </h3>
-                    </div>
-                  </div>
+            {/* Text */}
+            <div className="w-full lg:w-1/2 text-center lg:text-left">
+              <h3 className="text-2xl font-bold mb-1">{currentProject.title}</h3>
+              <p className="text-gray-400 text-sm mb-4">
+                {currentProject.subtitle}
+              </p>
+              <p className="text-gray-300 leading-relaxed text-base">
+                {currentProject.description}
+              </p>
+            </div>
+          </motion.div>
+        </AnimatePresence>
 
-                  {/* Overlay on Hover */}
-                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-6 flex flex-col justify-between">
-                    <div>
-                      <p className="text-sm text-gray-300 mb-4">{project.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.map((tech, i) => (
-                          <span key={i} className="bg-blue-500/10 text-blue-400 py-1 px-3 rounded-full text-xs">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    <a
-                      href={project.link}
-                      className="text-blue-400 underline mt-4 text-sm hover:text-blue-300 transition"
-                    >
-                      View Project →
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Arrows */}
+        <div className="flex justify-center gap-6 mt-10">
+          <button
+            onClick={prevProject}
+            className="p-2 border border-white/20 hover:bg-white/10 transition rounded-full"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={nextProject}
+            className="p-2 border border-white/20 hover:bg-white/10 transition rounded-full"
+          >
+            <ChevronRight size={20} />
+          </button>
         </div>
-      </RevealOnScroll>
+      </div>
     </section>
   );
 };

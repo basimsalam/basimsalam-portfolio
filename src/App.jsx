@@ -9,6 +9,7 @@ import { Projects } from "./components/Section/Project";
 import "./index.css";
 import { Contact } from "./components/Section/Contact";
 import { ResumeTabs } from "./components/Section/Resumetabs";
+
 import CustomCursor from "./components/CustomCursor";
 
 
@@ -19,7 +20,8 @@ function App() {
   return (
     <>
       {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}{" "}
-      <div
+      <div 
+
         className={`min-h-screen transition-opacity duration-700 ${
           isLoaded ? "opacity-100" : "opacity-0"
         } bg-black text-gray-100`}
