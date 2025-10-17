@@ -35,7 +35,7 @@ export const Home = () => {
                 <FaLinkedin />
               </a>
               <a
-                href="https://instagram.com/yourprofile"
+                href="https://instagram.com/basim_salam"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-pink-500 transition duration-300"

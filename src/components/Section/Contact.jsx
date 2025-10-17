@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { RevealOnScroll } from "../RevealOnScroll";
-import emailjs from "emailjs-com";
 import {
   FaEnvelope,
   FaPhone,
@@ -17,36 +16,43 @@ export const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    // Optional: Debug output
-    console.log("Sending Email with:", {
-      service_id: import.meta.env.VITE_SERVICE_ID,
-      template_id: import.meta.env.VITE_TEMPLATE_ID,
-      public_key: import.meta.env.VITE_PUBLIC_KEY,
-      formData,
-    });
+    const formDataToSend = {
+      access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY, // 👈 Replace with your Web3Forms access key
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    };
 
-    emailjs
-      .send(
-        import.meta.env.VITE_SERVICE_ID,
-        import.meta.env.VITE_TEMPLATE_ID,
-        {
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        import.meta.env.VITE_PUBLIC_KEY
-      )
-      .then(() => {
-        alert("✅ Message Sent Successfully!");
-        setFormData({ name: "", email: "", message: "" });
-      })
-      .catch((error) => {
-        console.error("EmailJS Error:", error);
-        alert("❌ Something went wrong. Please try again.");
+        body: JSON.stringify(formDataToSend),
       });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("✅ Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        alert("❌ Something went wrong. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Web3Forms Error:", error);
+      alert("❌ Failed to send message. Please check your connection.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -66,11 +72,11 @@ export const Contact = () => {
               </div>
               <div className="flex items-center gap-3">
                 <FaPhone className="text-blue-400 text-xl" />
-                <span className="text-gray-300">+91 9207931626</span>
+                <span className="text-gray-300">+966 506536605</span>
               </div>
               <div className="flex items-center gap-3">
                 <FaMapMarkerAlt className="text-blue-400 text-xl" />
-                <span className="text-gray-300">Kochi, Kerala, India</span>
+                <span className="text-gray-300">Riyadh, Saudi Arabia</span>
               </div>
               <div className="flex gap-6 pt-4">
                 <a
@@ -88,7 +94,7 @@ export const Contact = () => {
                   <FaLinkedin className="text-2xl hover:text-blue-400 transition" />
                 </a>
                 <a
-                  href="https://instagram.com/yourusername"
+                  href="https://instagram.com/basim_salam"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -134,9 +140,14 @@ export const Contact = () => {
               ></textarea>
               <button
                 type="submit"
-                className="w-full bg-blue-500 text-white py-3 px-6 rounded font-medium transition hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
+                disabled={loading}
+                className={`w-full py-3 px-6 rounded font-medium transition ${
+                  loading
+                    ? "bg-gray-500 cursor-not-allowed"
+                    : "bg-blue-500 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
+                }`}
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
