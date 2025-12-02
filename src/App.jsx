@@ -6,6 +6,8 @@ import { MobileMenu } from "./components/MobileMenu";
 import { Home } from "./components/Section/Home";
 import { About } from "./components/Section/About";
 import { Projects } from "./components/Section/Project";
+import Chatbot from "./components/Chatbot";
+
 import "./index.css";
 import { Contact } from "./components/Section/Contact";
 import { ResumeTabs } from "./components/Section/Resumetabs";
@@ -34,6 +36,8 @@ function App() {
         <ResumeTabs />
         <Projects />
         <Contact />
+        <Chatbot />
+        
       </div>
     </>
   );
