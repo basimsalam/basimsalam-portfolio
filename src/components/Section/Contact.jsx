@@ -71,7 +71,8 @@ export const Contact = () => {
                 <span className="text-gray-600 dark:text-gray-300">basimnnas@gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
-                <FaPhone className="text-blue-400 text-xl" />
+                <FaPhone className="text-blue-400 text-xl scale-x-100 rotate-90" />
+
                 <span className="text-gray-600 dark:text-gray-300">+966 506536605</span>
               </div>
               <div className="flex items-center gap-3">
