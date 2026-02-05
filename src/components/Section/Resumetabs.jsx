@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function ResumeTabs() {
-  const [activeTab, setActiveTab] = useState("education");
+  const [activeTab, setActiveTab] = useState("experience");
 
   const education = [
     {
@@ -36,7 +36,7 @@ export function ResumeTabs() {
   const data = activeTab === "experience" ? experiences : education;
 
   return (
-    <section id = "experience" className="py-20 px-6 bg-black text-white">
+    <section id = "experience" className="py-20 px-6 bg-white text-gray-900 dark:bg-black dark:text-white">
       <h2 className="text-4xl font-bold text-center mb-6 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
         Experience & Education
       </h2>
@@ -50,7 +50,7 @@ export function ResumeTabs() {
             className={`py-2 px-6 rounded-lg font-medium border transition-all duration-300 ${
               activeTab === tab
                 ? "bg-blue-600 text-white border-blue-600 scale-105 shadow-lg"
-                : "bg-gray-800 text-gray-300 border-gray-700 hover:bg-gray-700"
+                : "bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700 hover:bg-gray-300 dark:hover:bg-gray-700"
             }`}
           >
             {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -61,7 +61,7 @@ export function ResumeTabs() {
       {/* Timeline */}
       <div className="relative max-w-6xl mx-auto">
         {/* Vertical Line */}
-        <div className="absolute left-1/2 top-0 w-1 h-full bg-gray-700 transform -translate-x-1/2 hidden md:block"></div>
+        <div className="absolute left-1/2 top-0 w-1 h-full bg-gray-400 dark:bg-gray-700 transform -translate-x-1/2 hidden md:block"></div>
 
         <div className="relative z-12 space-y-0">
           <AnimatePresence mode="wait">
@@ -81,11 +81,11 @@ export function ResumeTabs() {
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.1 }}
-                    className="bg-gray-900 p-6 rounded-xl border border-gray-700 shadow-lg hover:border-blue-500 hover:shadow-blue-500/20 transition-all duration-300"
+                    className="bg-gray-50 dark:bg-gray-900 p-6 rounded-xl border border-gray-300 dark:border-gray-700 shadow-lg hover:border-blue-500 hover:shadow-blue-500/20 transition-all duration-300"
                   >
-                    <h3 className="text-l font-semibold">{item.title}</h3>
-                    <p className="text-gray-400 text-sm mb-2">{item.date}</p>
-                    <p className="text-sm">{item.description}</p>
+                    <h3 className="text-l font-semibold text-gray-900 dark:text-white">{item.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{item.date}</p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">{item.description}</p>
                   </motion.div>
                 </div>
 

@@ -2,14 +2,14 @@ import { RevealOnScroll } from "../RevealOnScroll";
 // import heroImg from "/basim-portfolio/assets/basim.jpg";
 import { Typewriter } from "react-simple-typewriter";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
-import heroImg from '../../assets/basim.jpg';
+import heroImg from '../../assets/basim.png';
 import resume from '../../assets/BasimCV.pdf';
 
 export const Home = () => {
   return (
     <section
   id="home"
-  className="min-h-screen flex items-center justify-center bg-black text-white px-6 md:px-12 pt-24 md:pt-32"
+  className="min-h-screen flex items-center justify-center bg-white text-gray-900 dark:bg-black dark:text-white px-6 md:px-12 pt-24 md:pt-32"
 >
 
       <RevealOnScroll>
@@ -17,7 +17,7 @@ export const Home = () => {
           {/* Left Side - Text */}
           <div>
             {/* Social Icons */}
-            <div className="flex space-x-6 mb-6 text-2xl text-white">
+            <div className="flex space-x-6 mb-6 text-2xl text-gray-900 dark:text-white">
               <a
                 href="https://github.com/basimsalam"
                 target="_blank"
@@ -66,7 +66,7 @@ export const Home = () => {
               />
             </h2>
 
-            <p className="text-gray-400 text-lg mb-8 leading-relaxed max-w-xl">
+            <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 leading-relaxed max-w-xl">
               I’m a Data Scientist with a focus on AI, machine learning, and data analytics.
               I enjoy working with Python and building smart, predictive models.
               I love turning complex data into clear, actionable insights.
@@ -95,7 +95,9 @@ export const Home = () => {
             <img
               src={heroImg}
               alt="Basim's Photo"
-              className="rounded-xl shadow-lg object-cover max-w-sm w-full"
+              className="rounded-xl object-cover max-w-sm w-full
+           shadow-lg dark:shadow-black/40"
+
             />
           </div>
         </div>

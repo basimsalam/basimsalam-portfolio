@@ -3,6 +3,7 @@ import { useState } from "react";
 import recritment_ai from "../../assets/recruitment.jpeg";
 import disease from "../../assets/disease.jpg";
 import netflix from "../../assets/netflix.jpg";
+import question_paper from "../../assets/question_paper.jpeg";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -29,6 +30,13 @@ const projects = [
       "A responsive Netflix UI clone built using React. Includes authentication, movie previews, and category listings.",
     image: netflix,
   },
+  {
+    title: "AI Question Paper Generator",
+    subtitle: "AI-Powered Educational Tool",
+    description:
+      "An AI-powered tool that generates question papers based on input parameters.",
+    image: question_paper,
+  },
 ];
 
 export const Projects = () => {
@@ -44,13 +52,13 @@ export const Projects = () => {
   };
 
   return (
-    <section id="projects" className="min-h-screen py-20 bg-black text-white">
+    <section id="projects" className="min-h-screen py-20 bg-white text-gray-900 dark:bg-black dark:text-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <h2 className="text-4xl font-bold text-center mb-2">
           Things I have built
         </h2>
-        <p className="text-center text-gray-400 mb-16">
+        <p className="text-center text-gray-600 dark:text-gray-400 mb-16">
           A showcase of projects and work I’ve created
         </p>
 
@@ -77,10 +85,12 @@ export const Projects = () => {
             {/* Text */}
             <div className="w-full lg:w-1/2 text-center lg:text-left">
               <h3 className="text-2xl font-bold mb-1">{currentProject.title}</h3>
-              <p className="text-gray-400 text-sm mb-4">
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+
                 {currentProject.subtitle}
               </p>
-              <p className="text-gray-300 leading-relaxed text-base">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base">
+
                 {currentProject.description}
               </p>
             </div>
@@ -90,17 +100,23 @@ export const Projects = () => {
         {/* Arrows */}
         <div className="flex justify-center gap-6 mt-10">
           <button
-            onClick={prevProject}
-            className="p-2 border border-white/20 hover:bg-white/10 transition rounded-full"
-          >
-            <ChevronLeft size={20} />
-          </button>
-          <button
-            onClick={nextProject}
-            className="p-2 border border-white/20 hover:bg-white/10 transition rounded-full"
-          >
-            <ChevronRight size={20} />
-          </button>
+  onClick={prevProject}
+  className="p-2 rounded-full transition
+             border border-gray-300 hover:bg-gray-200
+             dark:border-white/20 dark:hover:bg-white/10"
+>
+  <ChevronLeft size={20} />
+</button>
+
+<button
+  onClick={nextProject}
+  className="p-2 rounded-full transition
+             border border-gray-300 hover:bg-gray-200
+             dark:border-white/20 dark:hover:bg-white/10"
+>
+  <ChevronRight size={20} />
+</button>
+
         </div>
       </div>
     </section>

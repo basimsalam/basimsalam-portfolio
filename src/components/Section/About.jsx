@@ -24,14 +24,17 @@ const skills = [
 
 export const About = () => {
   return (
-    <section id="about" className="min-h-screen py-20 bg-black text-white">
+    <section id="about" className="min-h-screen py-20 px-6
+           bg-white text-gray-900
+           dark:bg-black dark:text-white"
+>
       <RevealOnScroll>
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-6 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
             About Me
           </h2>
 
-          <p className="text-gray-300 text-lg mb-12 text-center leading-relaxed">
+          <p className="text-gray-700 dark:text-gray-300 text-lg mb-12 text-center leading-relaxed">
             I’m Basim Abdul Salam, a passionate and results-driven Data Scientist and AI Developer based in Kochi, Kerala. With a strong foundation in machine learning, data analytics, and predictive modeling, I specialize in building intelligent solutions that turn raw data into actionable insights.
             <br /><br />
             Currently working as an AI Developer at Summit Solutions, I develop AI-driven systems using tools like CrewAI, LangChain, and LLaMA 3, while also deploying scalable REST APIs using FastAPI. My previous role as a Data Science Intern at Luminar Technolab helped me sharpen my skills in data cleaning, exploratory data analysis (EDA), and predictive modeling using Python and Pandas.
@@ -66,13 +69,20 @@ export const About = () => {
           >
             {skills.map((skill, i) => (
               <SwiperSlide key={i}>
-                <div className="bg-black-500/10 hover:bg-black-500/20 transition p-4 rounded-xl flex flex-col items-center justify-center gap-2 h-32">
+                <div
+  className="bg-gray-100 hover:bg-gray-200
+             dark:bg-gray-900 dark:hover:bg-gray-800
+             transition p-4 rounded-xl
+             flex flex-col items-center justify-center gap-2 h-32"
+>
+
                   <img
                     src={skill.icon}
                     alt={skill.name}
                     className="w-10 h-10 object-contain"
                   />
-                  <span className="text-sm text-blue-400 font-medium text-center">
+                  <span className="text-sm font-medium text-blue-500 dark:text-blue-400 text-center">
+
                     {skill.name}
                   </span>
                 </div>

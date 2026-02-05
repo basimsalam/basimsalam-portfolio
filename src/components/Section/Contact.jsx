@@ -56,7 +56,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="min-h-screen py-20 bg-black text-white">
+    <section id="contact" className="min-h-screen py-20 bg-white text-gray-900 dark:bg-black dark:text-white">
       <RevealOnScroll>
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
@@ -68,15 +68,15 @@ export const Contact = () => {
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-blue-400 text-xl" />
-                <span className="text-gray-300">basimnnas@gmail.com</span>
+                <span className="text-gray-600 dark:text-gray-300">basimnnas@gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <FaPhone className="text-blue-400 text-xl" />
-                <span className="text-gray-300">+966 506536605</span>
+                <span className="text-gray-600 dark:text-gray-300">+966 506536605</span>
               </div>
               <div className="flex items-center gap-3">
                 <FaMapMarkerAlt className="text-blue-400 text-xl" />
-                <span className="text-gray-300">Riyadh, Saudi Arabia</span>
+                <span className="text-gray-600 dark:text-gray-300">Riyadh, Saudi Arabia</span>
               </div>
               <div className="flex gap-6 pt-4">
                 <a
@@ -111,7 +111,7 @@ export const Contact = () => {
                 required
                 value={formData.name}
                 placeholder="Your Name"
-                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
+                className="w-full bg-gray-50 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded px-4 py-3 text-gray-900 dark:text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5 placeholder-gray-500 dark:placeholder-gray-400"
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
@@ -122,7 +122,7 @@ export const Contact = () => {
                 required
                 value={formData.email}
                 placeholder="your@email.com"
-                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
+                className="w-full bg-gray-50 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded px-4 py-3 text-gray-900 dark:text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5 placeholder-gray-500 dark:placeholder-gray-400"
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
@@ -133,7 +133,7 @@ export const Contact = () => {
                 rows={5}
                 value={formData.message}
                 placeholder="Your message..."
-                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
+                className="w-full bg-gray-50 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded px-4 py-3 text-gray-900 dark:text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5 placeholder-gray-500 dark:placeholder-gray-400"
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
                 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+// import "./App.css";
 import { LoadingScreen } from "./components/Loadingscreen";
 import { Navbar } from "./components/Navbar";
 import { MobileMenu } from "./components/MobileMenu";
@@ -7,8 +7,8 @@ import { Home } from "./components/Section/Home";
 import { About } from "./components/Section/About";
 import { Projects } from "./components/Section/Project";
 import Chatbot from "./components/Chatbot";
-
-import "./index.css";
+import Certifications from "./components/Section/Certifications";
+// import "./index.css";
 import { Contact } from "./components/Section/Contact";
 import { ResumeTabs } from "./components/Section/Resumetabs";
 
@@ -22,12 +22,12 @@ function App() {
   return (
     <>
       {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}{" "}
-      <div 
-
-        className={`min-h-screen transition-opacity duration-700 ${
-          isLoaded ? "opacity-100" : "opacity-0"
-        } bg-black text-gray-100`}
-      >
+      <div
+      
+  className={`min-h-screen transition-opacity duration-700 ${
+    isLoaded ? "opacity-100" : "opacity-0"
+  } bg-white text-gray-900 dark:bg-black dark:text-gray-100`}
+>
         <CustomCursor/>
         <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
@@ -35,6 +35,7 @@ function App() {
         <About />
         <ResumeTabs />
         <Projects />
+        <Certifications />
         <Contact />
         <Chatbot />
         
