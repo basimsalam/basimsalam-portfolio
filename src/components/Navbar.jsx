@@ -79,7 +79,7 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
             ))}
 
             {/* 🌗 Theme Toggle */}
-            <button
+            {/* <button
               onClick={handleThemeToggle}
               className="ml-4 p-2 rounded-full 
                          bg-gray-200 dark:bg-gray-800
@@ -91,7 +91,7 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
               ) : (
                 <Moon className="w-5 h-5 text-gray-900" />
               )}
-            </button>
+            </button> */}
           </div>
 
         </div>

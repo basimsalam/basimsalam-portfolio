@@ -10,6 +10,11 @@ import Docker from "../../assets/docker.png";
 import html from "../../assets/html-5.png";
 import cvision from "../../assets/vision.png";
 import github from "../../assets/git.png";
+import analytical from "../../assets/analytical-chart.png";
+import machinelearning from "../../assets/machine-learning.png";
+import deeplearning from "../../assets/deep-learning.png";
+
+
 
 const skills = [
   { name: "React", icon: structureIcon },
@@ -20,6 +25,9 @@ const skills = [
   { name: "HTML", icon: html },
   { name: "Computer Vision", icon: cvision },
   { name: "Git", icon: github },
+  { name: "Data Analysis", icon: analytical },
+  { name: "Machine Learning", icon: machinelearning },
+  { name: "Deep Learning", icon: deeplearning },
 ];
 
 export const About = () => {
@@ -70,11 +78,14 @@ export const About = () => {
             {skills.map((skill, i) => (
               <SwiperSlide key={i}>
                 <div
-  className="bg-gray-100 hover:bg-gray-200
-             dark:bg-gray-900 dark:hover:bg-gray-800
+  className="bg-transparent
+             hover:bg-gray-200/40
+             dark:hover:bg-white/10
              transition p-4 rounded-xl
-             flex flex-col items-center justify-center gap-2 h-32"
+             flex flex-col items-center justify-center gap-2 h-32
+             backdrop-blur-sm"
 >
+
 
                   <img
                     src={skill.icon}
